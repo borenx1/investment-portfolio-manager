@@ -3,12 +3,13 @@ root = true
 [*]
 end_of_line = lf
 charset = utf-8
+trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.{js,ts,tsx,json}]
 indent_style = space
 indent_size = 2
 
-[*.{html,css,json}]
+[*.{html,css}]
 indent_style = space
 indent_size = 2
