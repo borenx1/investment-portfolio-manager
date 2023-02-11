@@ -6,14 +6,16 @@ import {
   Divider,
   IconButton,
   List,
-  ListItemButton,
   ListItemIcon,
   ListItemText,
+  ListSubheader,
   Toolbar,
   Typography,
 } from '@mui/material';
 import {
+  AccountBalance as AccountBalanceIcon,
   Assignment as AssignmentIcon,
+  Book as BookIcon,
   ChevronLeft as ChevronLeftIcon,
   Dashboard as DashboardIcon,
   Login as LoginIcon,
@@ -22,6 +24,7 @@ import {
 } from '@mui/icons-material';
 import AppBar from './AppBar';
 import Drawer from './Drawer';
+import ListItemLink from '../../components/ListItemLink';
 
 export default function DashboardLayout({
   children,
@@ -82,26 +85,40 @@ export default function DashboardLayout({
         </Toolbar>
         <Divider />
         <List component="nav">
-          <ListItemButton>
+          <ListSubheader inset>Transactions</ListSubheader>
+          <ListItemLink href="/dashboard">
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
-          </ListItemButton>
+          </ListItemLink>
+          <ListItemLink href="/dashboard/journals">
+            <ListItemIcon>
+              <BookIcon />
+            </ListItemIcon>
+            <ListItemText primary="Journals" />
+          </ListItemLink>
+          <ListItemLink href="/dashboard/capital-changes">
+            <ListItemIcon>
+              <AccountBalanceIcon />
+            </ListItemIcon>
+            <ListItemText primary="Capital changes" />
+          </ListItemLink>
           <Divider sx={{ my: 1 }} />
-          <ListItemButton>
+          <ListSubheader inset>Financials</ListSubheader>
+          <ListItemLink href="/dashboard/financials">
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
             <ListItemText primary="Financials" />
-          </ListItemButton>
+          </ListItemLink>
           <Divider sx={{ my: 1 }} />
-          <ListItemButton>
+          <ListItemLink href="/account-settings">
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItemButton>
+            <ListItemText primary="Account settings" />
+          </ListItemLink>
         </List>
       </Drawer>
       <Box
