@@ -17,7 +17,7 @@ import {
   ArrowDropDownCircle as ArrowDropDownCircleIcon,
 } from '@mui/icons-material';
 import { drawerWidth } from './Drawer';
-import { useAnonStore, getActiveAccount } from '../../stores/anon';
+import { useAnonStore, useActiveAccount } from '../../stores/anon';
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -52,7 +52,7 @@ export default function AppBar({
   const accountsMenuOpen = Boolean(menuAnchor);
 
   const accounts = useAnonStore((state) => state.investmentAccounts);
-  const activeAccount = getActiveAccount();
+  const activeAccount = useActiveAccount();
 
   return (
     <DrawerAppBar position="absolute" open={open}>
@@ -94,7 +94,11 @@ export default function AppBar({
           MenuListProps={{ 'aria-labelledby': 'accounts-button' }}
         >
           {accounts.map((account) => (
-            <MenuItem onClick={() => setMenuAnchor(null)}>
+            <MenuItem
+              onClick={() => setMenuAnchor(null)}
+              selected={account.name === activeAccount?.name}
+              key={account.name}
+            >
               {account.name}
             </MenuItem>
           ))}

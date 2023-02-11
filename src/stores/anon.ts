@@ -28,7 +28,7 @@ export const useAnonStore = create<AnonState>()((set) => ({
     })),
 }));
 
-export function getActiveAccount() {
+export function useActiveAccount() {
   const accounts = useAnonStore((state) => state.investmentAccounts);
   const activeAccountIndex = useAnonStore((state) => state.activeAccountIndex);
   return accounts[activeAccountIndex];

@@ -3,7 +3,7 @@
 import { styled } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 
-export const drawerWidth: number = 240;
+export const drawerWidth = 240;
 
 export default styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== 'open',
