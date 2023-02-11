@@ -10,7 +10,6 @@ import {
   ListItemText,
   ListSubheader,
   Toolbar,
-  Typography,
 } from '@mui/material';
 import {
   AccountBalance as AccountBalanceIcon,
@@ -18,8 +17,6 @@ import {
   Book as BookIcon,
   ChevronLeft as ChevronLeftIcon,
   Dashboard as DashboardIcon,
-  Login as LoginIcon,
-  Menu as MenuIcon,
   Settings as SettingsIcon,
 } from '@mui/icons-material';
 import AppBar from './AppBar';
@@ -38,38 +35,7 @@ export default function DashboardLayout({
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position="absolute" open={open}>
-        <Toolbar
-          sx={{
-            pr: '24px', // keep right padding when drawer closed
-          }}
-        >
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
-            sx={{
-              marginRight: '36px',
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1 }}
-          >
-            Investment Portfolio Manager
-          </Typography>
-          <IconButton color="inherit">
-            <LoginIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      <AppBar open={open} onToggleDrawer={toggleDrawer} />
       <Drawer variant="permanent" open={open}>
         <Toolbar
           sx={{
