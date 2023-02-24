@@ -1,8 +1,11 @@
-'use client';
-
-import { CssBaseline } from '@mui/material';
+import { Metadata } from 'next';
 import { Roboto } from '@next/font/google';
 import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Investment Portfolio Manager',
+  description: 'Investment Portfolio Manager',
+};
 
 const font = Roboto({ weight: '400', subsets: ['latin'] });
 
@@ -13,12 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <CssBaseline />
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
       <body className={font.className}>{children}</body>
     </html>
   );
